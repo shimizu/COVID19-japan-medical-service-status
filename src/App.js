@@ -10,6 +10,7 @@ import layers from "./components/Layers";
 
 
 import CheckBoxs from "./components/CheckBoxs";
+import CheckBoxs2 from "./components/CheckBoxs2";
 import BottomBtn from "./components/BottomBtn";
 import SimpleModal from "./components/modal";
 
@@ -92,6 +93,15 @@ function App() {
     stop: true,
     nobeds: true,
     unanswered: true
+  });
+
+  const [hospitalType, setHospitalType]  = useState({
+    ambulatoryCare_weekdays: true,
+    ambulatoryCare_holiday: true,
+    admission:true,
+    emergency: true,
+    dialysis: true,
+    chemotherapy: true
   });
 
   const [layerType, setLayerType]  = useState("point");
@@ -207,6 +217,7 @@ function App() {
           </Toolbar>
         </AppBar>
         <CheckBoxs value={hospitalState} onChange={setHospitalState} />
+        <CheckBoxs2 value={hospitalType} onChange={setHospitalType} />
         <SimpleModal body={modalBody} open={modalOpen} onClose={handlerOnColse}/>
       </div>
       <div id="panel"></div>
@@ -224,6 +235,7 @@ function App() {
               data,
               layerType:layerType,
               hospitalState:hospitalState,
+              hospitalType:hospitalType,
               onHover:handlerOnHover,
               onClick:handlerOnClickLayer
             })}

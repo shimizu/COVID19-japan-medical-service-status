@@ -9,6 +9,15 @@ const convertStats = {
     unanswered :"未回答",
 }
 
+const convertType = {
+  ambulatoryCare_weekdays: "外来（平日）",
+  ambulatoryCare_holiday: "外来（土日）",
+  admission:"入院",
+  emergency: "救急",
+  dialysis: "透析",
+  chemotherapy: "化学療法"
+}
+
 const scatterColor = {
     "通常":[23, 190, 187],
     "制限":[255, 165, 0],
@@ -27,7 +36,7 @@ const colorRange = [
   ];
   
 export default props => {
-  const { data, layerType,  hospitalState, onHover, onClick} = props;
+  const { data, layerType,  hospitalState, hospitalType, onHover, onClick} = props;
  
   if (!data) return;
 
@@ -35,9 +44,11 @@ export default props => {
     .filter(key => hospitalState[key])
     .map(key => convertStats[key]);
 
-  const plotdata = data.filter(d => statefilter.some(v => d["医療区分回答"] === v))
-
+    const typefilter = Object.keys(hospitalType)
+    .filter(key => hospitalType[key])
+    .map(key => convertType[key]);    
   
+  const plotdata = data.filter(d => statefilter.some(v => d["医療区分回答"] === v) && typefilter.some(v => d["医療区分"] === v) )
 
   const scatter = new ScatterplotLayer({
     id: "scatterplot-layer",
@@ -60,6 +71,7 @@ export default props => {
   const hex = new HexagonLayer({
     id: "hexagon-layer",
     data:plotdata,
+    colorDomain:[0, 50],
     colorRange,
     opacity: 0.8,
     radius: 10000,
@@ -74,7 +86,7 @@ export default props => {
         for(let i =0 ; i <  d.length;i++){
             if(d[i]["医療区分回答"] === "停止" || d[i]["医療区分回答"] === "制限")  count++
         }
-        const percent = ~~(count / alllength * 100)
+        const percent = ~~(count / alllength * 100);
         return percent
     },
     onClick: onClick,
