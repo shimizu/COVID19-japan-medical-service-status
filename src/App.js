@@ -153,7 +153,7 @@ function App() {
 
   const createTable = (data) => {
     
-    const rows = data.reverse().map((d,i) => {
+    const rows = data.sort((a,b) => a["医療機関ID"] - b["医療機関ID"]).map((d,i) => {
       return {key:i, a:d["医療機関名"], b:d["医療区分"], c:d["医療区分回答"], d:d["医療機関住所"], e:d["提出日"]}
     });
 
@@ -203,7 +203,7 @@ function App() {
       <div id="header">
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6">医療提供体制の状況</Typography>
+            <Typography variant="h6">医療提供体制の状況(2020/5/15時点)</Typography>
           </Toolbar>
         </AppBar>
         <CheckBoxs value={hospitalState} onChange={setHospitalState} />
