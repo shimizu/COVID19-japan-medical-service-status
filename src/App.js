@@ -29,6 +29,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
+const TITLE = "医療提供体制の状況(2020/5/17時点)";
+
 //mapboxのトークンは自分で取得したものに変更してください。
 //このトークンは突然使えなくなる可能性があります。
 const MAPBOX_TOKEN =
@@ -214,7 +217,7 @@ function App() {
       <div id="header">
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6">医療提供体制の状況(2020/5/15時点)</Typography>
+            <Typography variant="h6">{TITLE}</Typography>
           </Toolbar>
         </AppBar>
         <CheckBoxs value={hospitalState} onChange={setHospitalState} />
