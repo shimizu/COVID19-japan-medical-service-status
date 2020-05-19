@@ -38,7 +38,7 @@ const MAPBOX_TOKEN =
   "pk.eyJ1Ijoic2hpbWl6dSIsImEiOiJjam95MDBhamYxMjA1M2tyemk2aHMwenp5In0.i2kMIJulhyPLwp3jiLlpsA";
   const MAPBOX_STYLE = "mapbox://styles/shimizu/ckaa9wckx31kw1it9kdk7lg0x";
 
-  const DATA_URL = "data/covid-19_daily_survey.zip";
+  const DATA_URL = "data/covid-19_daily_survey.zip?"+(new Date().getDate());
 
   const data_order = {
     "通常":3,
