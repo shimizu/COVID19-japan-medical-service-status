@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 
@@ -13,8 +13,6 @@ const CostuomFormControlLabel = withStyles({
   }
 })(props => <FormControlLabel color="default" {...props} />);
 
-
-
 const CCheckbox = withStyles({
   root: {
     padding: 0,
@@ -27,9 +25,8 @@ const CCheckbox = withStyles({
   checked: {}
 })(props => <Checkbox color="default" {...props} />);
 
-
 function CheckBoxs(props) {
-  const { value, onChange} = props;
+  const { value, onChange } = props;
 
   const handleChange = event => {
     onChange({ ...value, [event.target.name]: event.target.checked });

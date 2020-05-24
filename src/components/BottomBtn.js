@@ -19,7 +19,6 @@ const CosutmBottomNavigationAction = withStyles({
 function BottomBtn(props) {
   const { value, onChange } = props;
 
- 
   return (
     <BottomNavigation
       value={value}

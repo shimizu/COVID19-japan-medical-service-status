@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 
@@ -74,12 +74,11 @@ const Gray2Checkbox = withStyles({
 })(props => <Checkbox color="default" {...props} />);
 
 function CheckBoxs(props) {
-  const { value, onChange} = props;
+  const { value, onChange } = props;
 
   const handleChange = event => {
     onChange({ ...value, [event.target.name]: event.target.checked });
   };
-
 
   return (
     <Box elevation={3} id="panel">
