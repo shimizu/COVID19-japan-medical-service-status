@@ -27,7 +27,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const TITLE = "医療提供体制の状況(2020/11/14 時点)";
+const TITLE = "医療提供体制の状況(2020/12/9 時点)";
 
 //mapboxのトークンは自分で取得したものに変更してください。
 //このトークンは突然使えなくなる可能性があります。
