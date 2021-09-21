@@ -46,6 +46,7 @@ export default props => {
 
   if (!data) return;
 
+
   const statefilter = Object.keys(hospitalState)
     .filter(key => hospitalState[key])
     .map(key => convertStats[key]);

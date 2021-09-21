@@ -17,6 +17,7 @@ import { parse, fetchFile } from "@loaders.gl/core";
 import { ZipLoader } from "@loaders.gl/zip";
 import decodeText from "./components/DecodeText.js";
 import { csvParse } from "d3-dsv";
+import { csv } from "d3-fetch";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -27,7 +28,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const TITLE = "医療提供体制の状況(2021/1/10 時点)";
+const TITLE = "医療提供体制の状況(2021/9/20 時点)";
 
 //mapboxのトークンは自分で取得したものに変更してください。
 //このトークンは突然使えなくなる可能性があります。
@@ -144,6 +145,9 @@ function App() {
           (a, b) =>
             data_order[b["医療区分回答"]] - data_order[a["医療区分回答"]]
         );
+
+
+
         setData(loadData);
       });
     };
